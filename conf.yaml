@@ -1,0 +1,71 @@
+paths:
+    build:          html/
+    repos:          .repos/
+    branch_tracker: html/branches.yaml
+
+repos:
+    elasticsearch:
+        url:        https://github.com/elastic/elasticsearch.git
+        current:    1.5
+        branches:
+            - master
+
+contents_title:     Docs
+
+contents:
+    -   title:      "Elasticsearch: Store, Search, and Analyze"
+        sections:
+          -
+            title:      Elasticsearch Reference
+            prefix:     en/elasticsearch/reference
+            repo:       elasticsearch
+            index:      docs/reference/index.asciidoc
+            chunk:      1
+            tags:       Elasticsearch/Reference
+
+extra_links:
+    -
+        repo:           elasticsearch
+        file:           config/elasticsearch.yml
+
+redirects:
+    -
+        prefix:         en/
+        redirect:       /guide
+    -
+        prefix:         en/elasticsearch
+        redirect:       /guide
+
+template:
+    path:               .template/
+    branch:
+        default:
+            base_url:       'https://www.elastic.co/'
+            template_url:   'https://www.elastic.co/guide_template'
+        staging:
+            base_url:       'https://stag-www.elastic.co/'
+            template_url:   'https://stag-www.elastic.co/guide_template'
+    defaults:
+        POSTHEAD: |
+            <link rel="stylesheet" type="text/css" href="styles.css" />
+        POSTTITLE: |
+             </h2>
+             </header>
+             </div>
+             </div>
+        PREBODY: |
+            <div id="pageheader">
+                <div class="container">
+                    <header>
+                        <h1><a href="/learn" title="Learn">Learn</a> |</h1>
+                        <h2><a href="/guide" title="Docs">Docs</a></h2>
+                    </header>
+                </div>
+            </div>
+            <section id="guide">
+        POSTBODY: |
+            </section>
+        FINAL: |
+            <script type="text/javascript" src="docs.js"></script>
+            <script type='text/javascript' src='https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js'></script>
+
